@@ -1,0 +1,153 @@
+/* Animações */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(15, 150, 144, .35);
+  }
+
+  50% {
+    box-shadow: 0 0 0 12px rgba(15, 150, 144, 0);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.anim-fade-up {
+  animation: fadeInUp .7s ease-out both;
+}
+
+.anim-delay-1 {
+  animation-delay: .1s;
+}
+
+.anim-delay-2 {
+  animation-delay: .2s;
+}
+
+.anim-delay-3 {
+  animation-delay: .3s;
+}
+
+.anim-delay-4 {
+  animation-delay: .4s;
+}
+
+.anim-pulse-glow {
+  animation: pulseGlow 2.5s infinite;
+}
+
+.anim-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+
+/* Aparição no scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .65s ease-out, transform .65s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Header transparente */
+.glass {
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  background: rgba(255, 255, 255, .82);
+}
+
+
+/* Botão WhatsApp */
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  background-size: 200% 200%;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, .35);
+}
+
+
+/* Card de produto */
+.card-produto {
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.card-produto:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .08);
+}
+
+
+/* Texto com degradê */
+.gradient-text {
+  background: linear-gradient(135deg, #0F9690 0%, #0C87E9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+/* Sobreposição escura do hero */
+.hero-overlay {
+  background: linear-gradient(135deg, rgba(8, 63, 61, .78) 0%, rgba(9, 61, 110, .65) 100%);
+}
+
+
+/* Menu mobile */
+#nav-mobile {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, opacity .3s ease;
+  opacity: 0;
+}
+
+#nav-mobile.open {
+  max-height: 400px;
+  opacity: 1;
+}
+
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F3F4F6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0F9690, #0C87E9);
+  border-radius: 4px;
+}
