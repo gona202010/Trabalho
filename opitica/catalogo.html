@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Marcas e Promoções - Óptica Santa Casa Porto Alegre</title>
+    <meta name="description"
+        content="Marcas de armações e lentes na Óptica Santa Casa Porto Alegre. Promoções exclusivas." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: "#EEFBFA",
+                            100: "#D5F5F3",
+                            200: "#AEE9E6",
+                            300: "#7DD8D4",
+                            400: "#4CC1BD",
+                            500: "#0F9690",
+                            600: "#0D7B77",
+                            700: "#0B6561",
+                            800: "#0A524F",
+                            900: "#083F3D",
+                        },
+                        accent: {
+                            50: "#F0F7FF",
+                            100: "#E0EFFE",
+                            200: "#B9DDFD",
+                            300: "#7CC3FC",
+                            400: "#36A5F8",
+                            500: "#0C87E9",
+                            600: "#006BC7",
+                            700: "#0055A1",
+                            800: "#044985",
+                            900: "#093D6E",
+                        },
+                        neutral: {
+                            50: "#F9FAFB",
+                            100: "#F3F4F6",
+                            200: "#E5E7EB",
+                            300: "#D1D5DB",
+                            400: "#9CA3AF",
+                            500: "#6B7280",
+                            600: "#4B5563",
+                            700: "#374151",
+                            800: "#1F2937",
+                            900: "#111827",
+                        },
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "system-ui", "sans-serif"],
+                        display: ["Outfit", "system-ui", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        @keyframes badgePulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(15, 150, 144, 0.35);
+            }
+
+            50% {
+                box-shadow: 0 0 0 12px rgba(15, 150, 144, 0);
+            }
+        }
+
+        .shimmer-text {
+            background: linear-gradient(90deg,
+                    #0f9690 0%,
+                    #7dd8d4 40%,
+                    #36a5f8 60%,
+                    #0f9690 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+        }
+
+        .badge-promo {
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+
+        .marca-card {
+            transition:
+                transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.35s ease;
+        }
+
+        .marca-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .promo-card {
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .promo-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .filter-pill {
+            transition: all 0.25s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .filter-pill:hover {
+            transform: translateY(-2px);
+        }
+
+        .filter-pill.active {
+            background: linear-gradient(135deg, #0f9690, #0c87e9);
+            color: white;
+            box-shadow: 0 4px 14px rgba(15, 150, 144, 0.35);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #0f9690 0%, #0c87e9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass {
+            backdrop-filter: blur(14px) saturate(180%);
+            -webkit-backdrop-filter: blur(14px) saturate(180%);
+            background: rgba(255, 255, 255, 0.82);
+        }
+
+        .cat-hero-overlay {
+            background: linear-gradient(135deg,
+                    rgba(8, 63, 61, 0.82) 0%,
+                    rgba(9, 61, 110, 0.7) 100%);
+        }
+
+        .lente-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            transition:
+                transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .lente-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        #cat-nav-mobile {
+            max-height: 0;
+            overflow: hidden;
+            transition:
+                max-height 0.4s ease,
+                opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        #cat-nav-mobile.open {
+            max-height: 400px;
+            opacity: 1;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            transition:
+                transform 0.25s,
+                box-shadow 0.25s;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+        }
+
+        .anim-pulse-glow {
+            animation: pulseGlow 2.5s infinite;
+        }
+
+        .promo-featured {
+            grid-column: span 1;
+        }
+
+        @media (min-width: 768px) {
+            .promo-featured {
+                grid-column: span 2;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f3f4f6;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #0f9690, #0c87e9);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-neutral-800 bg-white antialiased">
+    <header id="cat-nav"
+        class="fixed top-0 inset-x-0 z-50 glass border-b border-neutral-200/60 transition-shadow duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-3">
+                <a href="./index.html" class="flex items-center gap-3 group">
+                    <img src="./assets/logo-ciana.webp" alt="Óptica Santa Casa"
+                        class="h-10 lg:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300" />
+                    <div class="flex flex-col justify-center">
+                        <span
+                            class="font-display text-lg lg:text-xl font-bold tracking-tight text-neutral-900 group-hover:text-primary-600 transition-colors leading-none">Santa
+                            Casa</span><span
+                            class="text-[11px] lg:text-xs font-bold tracking-widest text-primary-600 uppercase mt-1">Óptica
+                            Porto Alegre</span>
+                    </div>
+                </a>
+                <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+                    <a href="./index.html"
+                        class="px-4 py-2 text-sm font-medium text-neutral-700 rounded-lg hover:text-primary-600 hover:bg-primary-50 transition-colors">Início</a>
+                    <a href="#armacoes"
+                        class="px-4 py-2 text-sm font-medium text-neutral-700 rounded-lg hover:text-primary-600 hover:bg-primary-50 transition-colors">Armações</a>
+                    <a href="#lentes"
+                        class="px-4 py-2 text-sm font-medium text-neutral-700 rounded-lg hover:text-primary-600 hover:bg-primary-50 transition-colors">Lentes</a>
+                    <a href="#promocoes"
+                        class="px-4 py-2 text-sm font-medium text-neutral-700 rounded-lg hover:text-primary-600 hover:bg-primary-50 transition-colors">Promoções</a>
+                    <a href="https://api.whatsapp.com/send/?phone=555130297960&text&type=phone_number&app_absent=0"
+                        target="_blank" rel="noopener"
+                        class="btn-whatsapp ml-3 inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white rounded-full anim-pulse-glow"><i
+                            data-lucide="message-circle" class="w-4 h-4"></i>
+                        Agende uma visita</a>
+                </nav>
+                <button id="cat-btn-menu"
+                    class="md:hidden p-2 rounded-lg text-neutral-700 hover:bg-primary-50 transition-colors"
+                    aria-label="Menu" aria-expanded="false">
+                    <i data-lucide="menu" class="w-6 h-6" id="cat-icone-abrir"></i><i data-lucide="x"
+                        class="w-6 h-6 hidden" id="cat-icone-fechar"></i>
+                </button>
+            </div>
+            <nav id="cat-nav-mobile" class="md:hidden pb-4">
+                <div class="flex flex-col gap-1 pt-2 border-t border-neutral-200/60">
+                    <a href="./index.html"
+                        class="cat-link-mobile px-4 py-3 text-sm font-medium text-neutral-700 rounded-lg hover:bg-primary-50 hover:text-primary-600 transition-colors">Início</a>
+                    <a href="#armacoes"
+                        class="cat-link-mobile px-4 py-3 text-sm font-medium text-neutral-700 rounded-lg hover:bg-primary-50 hover:text-primary-600 transition-colors">Armações</a>
+                    <a href="#lentes"
+                        class="cat-link-mobile px-4 py-3 text-sm font-medium text-neutral-700 rounded-lg hover:bg-primary-50 hover:text-primary-600 transition-colors">Lentes</a>
+                    <a href="#promocoes"
+                        class="cat-link-mobile px-4 py-3 text-sm font-medium text-neutral-700 rounded-lg hover:bg-primary-50 hover:text-primary-600 transition-colors">Promoções</a>
+                    <a href="https://api.whatsapp.com/send/?phone=555130297960&text&type=phone_number&app_absent=0"
+                        target="_blank" rel="noopener"
+                        class="btn-whatsapp mt-2 inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold text-white rounded-full"><i
+                            data-lucide="message-circle" class="w-4 h-4"></i>
+                        Agende uma visita</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="relative min-h-[55vh] flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1509695507497-903c140c43b0?auto=format&fit=crop&w=1920&q=80"
+                alt="Óptica" class="w-full h-full object-cover" />
+            <div class="cat-hero-overlay absolute inset-0"></div>
+        </div>
+        <div class="absolute top-16 right-12 w-64 h-64 bg-primary-400/10 rounded-full blur-3xl anim-float"></div>
+        <div class="absolute bottom-10 left-8 w-80 h-80 bg-accent-400/10 rounded-full blur-3xl anim-float"
+            style="animation-delay: 1.5s"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+            <span
+                class="anim-fade-up inline-block mb-5 px-5 py-2 text-xs sm:text-sm font-semibold tracking-widest uppercase text-primary-200 bg-white/10 border border-white/20 rounded-full backdrop-blur-sm">As
+                melhores marcas em Porto Alegre</span>
+            <h1
+                class="anim-fade-up anim-delay-1 font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+                Marcas que você
+                <span class="shimmer-text block mt-2">conhece e confia</span>
+            </h1>
+            <p
+                class="anim-fade-up anim-delay-2 mt-6 text-lg sm:text-xl text-primary-100/90 max-w-2xl mx-auto leading-relaxed">
+                Trabalhamos com as principais marcas nacionais e
+                internacionais de armações e lentes.
+            </p>
+            <div class="anim-fade-up anim-delay-3 mt-8 flex flex-wrap items-center justify-center gap-4">
+                <a href="#armacoes"
+                    class="group inline-flex items-center gap-2 px-8 py-4 bg-white text-primary-700 font-bold rounded-full shadow-xl hover:shadow-2xl hover:bg-primary-50 transition-all duration-300 hover:-translate-y-0.5">Ver
+                    Armações
+                    <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i></a>
+                <a href="#promocoes"
+                    class="inline-flex items-center gap-2 px-8 py-4 bg-amber-400 text-amber-900 font-bold rounded-full shadow-xl hover:bg-amber-300 transition-all duration-300 hover:-translate-y-0.5"><i
+                        data-lucide="tag" class="w-5 h-5"></i> Ver
+                    Promoções</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="armacoes" class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <span
+                    class="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-primary-600 bg-primary-50 rounded-full">Armações
+                    de grau e sol</span>
+                <h2 class="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900">
+                    Marcas de <span class="gradient-text">Armações</span>
+                </h2>
+                <p class="mt-4 text-lg text-neutral-500 max-w-2xl mx-auto">
+                    De clássicos atemporais a tendências contemporâneas para
+                    todos os estilos e ocasiões.
+                </p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-3 mb-12 reveal" id="filtros-armacoes">
+                <button
+                    class="filter-pill active px-5 py-2 rounded-full text-sm font-semibold border border-neutral-200 text-neutral-700"
+                    data-filter="todos">
+                    Todas
+                </button>
+                <button
+                    class="filter-pill px-5 py-2 rounded-full text-sm font-semibold border border-neutral-200 text-neutral-700"
+                    data-filter="premium">
+                    Premium
+                </button>
+                <button
+                    class="filter-pill px-5 py-2 rounded-full text-sm font-semibold border border-neutral-200 text-neutral-700"
+                    data-filter="esportivo">
+                    Esportivo
+                </button>
+                <button
+                    class="filter-pill px-5 py-2 rounded-full text-sm font-semibold border border-neutral-200 text-neutral-700"
+                    data-filter="lifestyle">
+                    Lifestyle
+                </button>
+                <button
+                    class="filter-pill px-5 py-2 rounded-full text-sm font-semibold border border-neutral-200 text-neutral-700"
+                    data-filter="nacional">
+                    Nacional
+                </button>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 lg:gap-6" id="grid-armacoes">
+                <div class="marca-card reveal bg-white rounded-2xl p-6 border border-neutral-100 shadow-sm flex flex-col items-center text-center"
+                    data-categoria="lifestyle">
+                    <div class="w-20 h-16 flex items-center justify-center mb-4">
+                        <img src="./assets/RAYBAN.avif" alt="Ray-Ban"
+                            class="w-full h-full object-contain p-1 mix-blend-multiply" />
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-neutral-900 mb-1">
+                        Ray-Ban
+                    </h3>
+                    <span class="text-xs text-neutral-400 px-2 py-0.5 bg-neutral-50 rounded-full">Lifestyle</span>
+                </div>
+                <div class="marca-card reveal bg-white rounded-2xl p-6 border border-neutral-100 shadow-sm flex flex-col items-center text-center"
+                    data-categoria="esportivo">
+                    <div class="w-20 h-16 flex items-center justify-center mb-4">
+                        <img src="./assets/oakley-removebg-preview.avif" alt="Oakley"
+                            class="w-full h-full object-contain p-1 mix-blend-multiply" />
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-neutral-900 mb-1">
+                        Oakley
+                    </h3>
+                    <span class="text-xs text-cyan-600 px-2 py-0.5 bg-cyan-50 rounded-full">Esportivo</span>
+                </div>
+                <div class="marca-card reveal bg-white rounded-2xl p-6 border border-neutral-100 shadow-sm flex flex-col items-center text-center"
+                    data-categoria="nacional">
+                    <div
+                        class="w-16 h-16 rounded-2xl overflow-hidden flex items-center justify-center mb-4 shadow-sm border border-neutral-100 bg-white">
+                        <img src="./assets/chilli-beans.jpg" alt="Chilli Beans"
+                            class="w-full h-full object-cover" />
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-neutral-900 mb-1">
+                        Chilli Beans
+                    </h3>
+                    <span class="text-xs text-neutral-400 px-2 py-0.5 bg-neutral-50 rounded-full">Nacional</span>
+                </div>
+                <div class="marca-card reveal bg-white rounded-2xl p-6 border border-neutral-100 shadow-sm flex flex-col items-center text-center"
+                    data-categoria="premium">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center mb-4">
+                        <span class="font-display text-sm font-bold text-white tracking-widest">PRADA</span>
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-neutral-900 mb-1">
+                        Prada
+                    </h3>
+                    <span class="text-xs text-amber-600 px-2 py-0.5 bg-amber-50 rounded-full">Premium</span>
+                </div>
+                <div class="marca-card reveal bg-white rounded-2xl p-6 border border-neutral-100 shadow-sm flex flex-col items-center text-center"
+                    data-categoria="lifestyle">
+                    <div class="w-20 h-16 flex items-center justify-center mb-4">
+                        <img src="./assets/Lacoste.webp" alt="Lacoste"
+                            class="w-full h-full object-contain p-1 mix-blend-multiply" />
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-neutral-900 mb-1">
+                        Lacoste
+                    </h3>
+                    <span class="text-xs text-neutral-400 px-2 py-0.5 bg-neutral-50 rounded-full">Lifestyle</span>
+                </div>
+                <div class="marca-card reveal bg-white rounded-2xl p-6 border border-neutral-100 shadow-sm flex flex-col items-center text-center"
+                    data-categoria="premium">
+                    <div class="w-20 h-16 flex items-center justify-center mb-4">
+                        <img src="./assets/micheael-kors.png" alt="Michael Kors"
+                            class="w-full h-full object-contain p-1 mix-blend-multiply" />
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-neutral-900 mb-1">
+                        Michael Kors
+                    </h3>
+                    <span class="text-xs text-amber-600 px-2 py-0.5 bg-amber-50 rounded-full">Premium</span>
+                </div>
+                <div class="marca-card reveal bg-white rounded-2xl p-6 border border-neutral-100 shadow-sm flex flex-col items-center text-center"
+                    data-categoria="lifestyle">
+                    <div class="w-20 h-16 flex items-center justify-center mb-4">
+                        <img src="./assets/tommy hilfiger.png" alt="Tommy Hilfiger"
+                            class="w-full h-full object-contain p-1 mix-blend-multiply" />
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-neutral-900 mb-1">
+                        Tommy Hilfiger
+                    </h3>
+                    <span class="text-xs text-neutral-400 px-2 py-0.5 bg-neutral-50 rounded-full">Lifestyle</span>
+                </div>
+                <div class="marca-card reveal bg-white rounded-2xl p-6 border border-neutral-100 shadow-sm flex flex-col items-center text-center"
+                    data-categoria="lifestyle">
+                    <div class="w-20 h-16 flex items-center justify-center mb-4">
+                        <img src="./assets/guess.jpg" alt="Guess"
+                            class="w-full h-full object-contain p-1 mix-blend-multiply" />
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-neutral-900 mb-1">
+                        Guess
+                    </h3>
+                    <span class="text-xs text-neutral-400 px-2 py-0.5 bg-neutral-50 rounded-full">Lifestyle</span>
+                </div>
+                <div class="marca-card reveal bg-white rounded-2xl p-6 border border-neutral-100 shadow-sm flex flex-col items-center text-center"
+                    data-categoria="esportivo">
+                    <div class="w-20 h-16 flex items-center justify-center mb-4">
+                        <img src="./assets/mormaii.png" alt="Mormaii"
+                            class="w-full h-full object-contain p-1 mix-blend-multiply" />
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-neutral-900 mb-1">
+                        Mormaii
+                    </h3>
+                    <span class="text-xs text-cyan-600 px-2 py-0.5 bg-cyan-50 rounded-full">Esportivo</span>
+                </div>
+                <div class="marca-card reveal bg-white rounded-2xl p-6 border border-neutral-100 shadow-sm flex flex-col items-center text-center"
+                    data-categoria="premium">
+                    <div
+                        class="w-16 h-16 rounded-2xl overflow-hidden flex items-center justify-center mb-4 shadow-sm border border-neutral-100 bg-white">
+                        <img src="./assets/carolina-herrera.jpg" alt="Carolina Herrera"
+                            class="w-full h-full object-cover" />
+                    </div>
+                    <h3 class="font-display font-bold text-sm text-neutral-900 mb-1">
+                        Carolina Herrera
+                    </h3>
+                    <span class="text-xs text-amber-600 px-2 py-0.5 bg-amber-50 rounded-full">Premium</span>
+                </div>
+            </div>
+            <div class="text-center mt-14 reveal">
+                <a href="https://api.whatsapp.com/send/?phone=555130297960&text=Ola+gostaria+saber+sobre+armações&type=phone_number&app_absent=0"
+                    target="_blank" rel="noopener"
+                    class="btn-whatsapp inline-flex items-center gap-3 px-8 py-4 text-white font-bold rounded-full shadow-xl text-base"><i
+                        data-lucide="message-circle" class="w-5 h-5"></i>
+                    Perguntar sobre armações</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="lentes" class="py-20 lg:py-28 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary-800 via-primary-900 to-accent-900"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-primary-600/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-accent-600/15 rounded-full blur-3xl"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <span
+                    class="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-primary-300 bg-white/10 rounded-full border border-white/10">Tecnologia
+                    de visão</span>
+                <h2 class="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+                    Marcas de <span class="text-primary-300">Lentes</span>
+                </h2>
+                <p class="mt-4 text-lg text-primary-200/80 max-w-2xl mx-auto">
+                    Os maiores laboratorios de lentes do mundo para garantir
+                    a sua melhor visão.
+                </p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                <div class="lente-card reveal rounded-2xl p-8 text-center group">
+                    <div
+                        class="w-20 h-20 mx-auto rounded-2xl bg-white/10 flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
+                        <i data-lucide="eye" class="w-10 h-10 text-primary-300"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-2">
+                        Essilor
+                    </h3>
+                    <p class="text-primary-200/70 text-sm leading-relaxed mb-4">
+                        Lider mundial. Varilux para multifocais e Crizal
+                        para antirreflexo de alto desempenho.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span
+                            class="text-xs px-2.5 py-1 bg-white/10 text-primary-200 rounded-full">Multifocal</span><span
+                            class="text-xs px-2.5 py-1 bg-white/10 text-primary-200 rounded-full">Antirreflexo</span><span
+                            class="text-xs px-2.5 py-1 bg-white/10 text-primary-200 rounded-full">UV 400</span>
+                    </div>
+                </div>
+                <div class="lente-card reveal rounded-2xl p-8 text-center group">
+                    <div
+                        class="w-20 h-20 mx-auto rounded-2xl bg-white/10 flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
+                        <i data-lucide="scan-eye" class="w-10 h-10 text-accent-300"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-2">
+                        Zeiss
+                    </h3>
+                    <p class="text-primary-200/70 text-sm leading-relaxed mb-4">
+                        Precisao alemã em cada lente. Tecnologia de ponta
+                        para visão nítida em todas as distâncias.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span class="text-xs px-2.5 py-1 bg-white/10 text-primary-200 rounded-full">Digital</span><span
+                            class="text-xs px-2.5 py-1 bg-white/10 text-primary-200 rounded-full">Bluelight</span><span
+                            class="text-xs px-2.5 py-1 bg-white/10 text-primary-200 rounded-full">Premium</span>
+                    </div>
+                </div>
+                <div class="lente-card reveal rounded-2xl p-8 text-center group">
+                    <div
+                        class="w-20 h-20 mx-auto rounded-2xl bg-white/10 flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
+                        <i data-lucide="sun" class="w-10 h-10 text-amber-300"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-2">
+                        Hoya
+                    </h3>
+                    <p class="text-primary-200/70 text-sm leading-relaxed mb-4">
+                        Inovacao japonesa. Lentes fotossensíveis e solucoes
+                        personalizadas para cada estilo de vida.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span
+                            class="text-xs px-2.5 py-1 bg-white/10 text-primary-200 rounded-full">Fotossensivel</span><span
+                            class="text-xs px-2.5 py-1 bg-white/10 text-primary-200 rounded-full">Progressiva</span>
+                    </div>
+                </div>
+                <div class="lente-card reveal rounded-2xl p-8 text-center group">
+                    <div
+                        class="w-20 h-20 mx-auto rounded-2xl bg-white/10 flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
+                        <i data-lucide="zap" class="w-10 h-10 text-primary-300"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-2">
+                        Shamir
+                    </h3>
+                    <p class="text-primary-200/70 text-sm leading-relaxed mb-4">
+                        Tecnologia israelense de última geração. Excelencia
+                        em lentes progressivas com alta adaptacao.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span
+                            class="text-xs px-2.5 py-1 bg-white/10 text-primary-200 rounded-full">Progressiva</span><span
+                            class="text-xs px-2.5 py-1 bg-white/10 text-primary-200 rounded-full">Alta Curva</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 reveal">
+                <div class="text-center p-6 rounded-2xl bg-white/5 border border-white/10">
+                    <p class="font-display text-3xl font-bold text-primary-300 mb-1">
+                        4+
+                    </p>
+                    <p class="text-sm text-primary-200/70">
+                        Laboratorios parceiros
+                    </p>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-white/5 border border-white/10">
+                    <p class="font-display text-3xl font-bold text-accent-300 mb-1">
+                        100%
+                    </p>
+                    <p class="text-sm text-primary-200/70">
+                        Lentes com UV400
+                    </p>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-white/5 border border-white/10">
+                    <p class="font-display text-3xl font-bold text-primary-300 mb-1">
+                        Grau
+                    </p>
+                    <p class="text-sm text-primary-200/70">
+                        Aferido com precisão
+                    </p>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-white/5 border border-white/10">
+                    <p class="font-display text-3xl font-bold text-amber-300 mb-1">
+                        Garantia
+                    </p>
+                    <p class="text-sm text-primary-200/70">
+                        Em todas as lentes
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-12 reveal">
+                <a href="https://api.whatsapp.com/send/?phone=555130297960&text=Ola+quero+saber+sobre+lentes&type=phone_number&app_absent=0"
+                    target="_blank" rel="noopener"
+                    class="btn-whatsapp inline-flex items-center gap-3 px-8 py-4 text-white font-bold rounded-full shadow-xl text-base"><i
+                        data-lucide="message-circle" class="w-5 h-5"></i>
+                    Consultar sobre lentes</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="promocoes" class="py-20 lg:py-28 bg-neutral-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <span
+                    class="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-amber-600 bg-amber-50 rounded-full border border-amber-100">Ofertas
+                    exclusivas</span>
+                <h2 class="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900">
+                    Promoções <span class="gradient-text">da Semana</span>
+                </h2>
+                <p class="mt-4 text-lg text-neutral-500 max-w-2xl mx-auto">
+                    Qualidade e economia juntas. Confira nossas ofertas e
+                    venha aproveitar na loja.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                <!-- Card 1 -->
+                <div
+                    class="promo-card reveal bg-white rounded-2xl overflow-hidden shadow-lg border border-neutral-100 flex flex-col group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="./assets/armação e lentes.avif" alt="Óculos de grau em promoção"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="badge-promo inline-block px-3 py-1 bg-amber-400 text-amber-900 text-xs font-bold rounded-full uppercase tracking-wide shadow-md">Super
+                                Oferta</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-display text-xl font-extrabold text-neutral-900 mb-2 leading-tight">
+                            Armação + Lentes 30% OFF
+                        </h3>
+                        <p class="text-neutral-500 text-sm mb-6 flex-grow">
+                            Na compra de qualquer armação de grau, ganhe 30%
+                            de desconto nas lentes com antirreflexo.
+                            Qualidade visual com preço imbatível!
+                        </p>
+                        <a href="https://api.whatsapp.com/send/?phone=555130297960&text=Olá!%20Vi%20a%20promoção%20de%20armação+lentes%20com%2030%25%20OFF"
+                            target="_blank" rel="noopener"
+                            class="w-full inline-flex justify-center items-center gap-2 px-5 py-3 bg-amber-500 text-white font-bold rounded-xl hover:bg-amber-600 transition-colors shadow-md">
+                            Aproveitar
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="promo-card reveal bg-white rounded-2xl overflow-hidden shadow-lg border border-neutral-100 flex flex-col group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="./assets/segundaarmação.avif" alt="Óculos de sol variados"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="inline-block px-3 py-1 bg-primary-500 text-white text-xs font-bold rounded-full uppercase tracking-wide shadow-md">2ª
+                                Armação</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-display text-xl font-extrabold text-neutral-900 mb-2 leading-tight">
+                            2ª Armação com 50% OFF
+                        </h3>
+                        <p class="text-neutral-500 text-sm mb-6 flex-grow">
+                            Leve a segunda armação (de sol ou de grau) pela
+                            metade do preço. Válido para qualquer modelo da
+                            loja!
+                        </p>
+                        <a href="https://api.whatsapp.com/send/?phone=555130297960&text=Olá!%20Quero%20saber%20sobre%20a%20promoção%20da%202ª%20armação"
+                            target="_blank" rel="noopener"
+                            class="w-full inline-flex justify-center items-center gap-2 px-5 py-3 bg-primary-50 text-primary-700 font-bold rounded-xl hover:bg-primary-100 transition-colors border border-primary-200">
+                            Saiba mais
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="promo-card reveal bg-white rounded-2xl overflow-hidden shadow-lg border border-neutral-100 flex flex-col group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="./assets/oculos de sol-fotosensivel.png" alt="Óculos no sol"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="inline-block px-3 py-1 bg-accent-500 text-white text-xs font-bold rounded-full uppercase tracking-wide shadow-md">Lentes</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-display text-xl font-extrabold text-neutral-900 mb-2 leading-tight">
+                            Lentes Fotossensíveis
+                        </h3>
+                        <p class="text-neutral-500 text-sm mb-6 flex-grow">
+                            Faça um upgrade para lentes que escurecem no
+                            sol. Proteção total e conforto em qualquer
+                            ambiente.
+                        </p>
+                        <a href="https://api.whatsapp.com/send/?phone=555130297960&text=Olá!%20Quero%20saber%20sobre%20lentes%20fotossensíveis"
+                            target="_blank" rel="noopener"
+                            class="w-full inline-flex justify-center items-center gap-2 px-5 py-3 bg-accent-50 text-accent-700 font-bold rounded-xl hover:bg-accent-100 transition-colors border border-accent-200">
+                            Ver preços
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                    class="promo-card reveal bg-white rounded-2xl overflow-hidden shadow-lg border border-neutral-100 flex flex-col group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="./assets/Ajuste e Limpeza.avif" alt="Limpeza de óculos"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="inline-block px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full uppercase tracking-wide shadow-md">Grátis</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-display text-xl font-extrabold text-neutral-900 mb-2 leading-tight">
+                            Ajuste e Limpeza Grátis
+                        </h3>
+                        <p class="text-neutral-500 text-sm mb-6 flex-grow">
+                            Traga seus óculos de grau ou sol para um ajuste
+                            completo nas hastes e limpeza ultrassônica sem
+                            custo!
+                        </p>
+                        <a href="https://api.whatsapp.com/send/?phone=555130297960&text=Olá!%20Gostaria%20de%20agendar%20um%20ajuste%20e%20limpeza%20gratuita"
+                            target="_blank" rel="noopener"
+                            class="w-full inline-flex justify-center items-center gap-2 px-5 py-3 bg-green-50 text-green-700 font-bold rounded-xl hover:bg-green-100 transition-colors border border-green-200">
+                            Agendar visita
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-xs text-neutral-400 mt-10 italic">
+                * Promoções válidas enquanto durar o estoque. Consulte
+                condições na loja.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary-700 via-primary-800 to-accent-900"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6">
+                Venha nos visitar no Centro de Porto Alegre
+            </h2>
+            <p class="text-lg text-primary-200/80 mb-10 max-w-2xl mx-auto">
+                Rua Professor Annes Dias, 162. Seg-Sex 9h-19h, Sáb 9h-13h.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://api.whatsapp.com/send/?phone=555130297960&text&type=phone_number&app_absent=0"
+                    target="_blank" rel="noopener"
+                    class="btn-whatsapp inline-flex items-center gap-3 px-8 py-4 text-white font-bold rounded-full shadow-xl text-base"><i
+                        data-lucide="message-circle" class="w-5 h-5"></i>
+                    Agende uma visita pelo WhatsApp</a>
+                <a href="./index.html"
+                    class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 border border-white/20 text-white font-bold rounded-full hover:bg-white/20 transition-colors text-base backdrop-blur-sm"><i
+                        data-lucide="home" class="w-5 h-5"></i> Voltar a
+                    página inicial</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-neutral-900 text-neutral-400 py-10">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <a href="./index.html" class="inline-flex items-center gap-3 group"><img src="./assets/logo-ciana.webp"
+                    alt="Óptica Santa Casa"
+                    class="h-9 w-auto object-contain brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity" />
+                <div>
+                    <p class="font-display font-bold text-white text-sm leading-none">
+                        Santa Casa
+                    </p>
+                    <p class="text-[10px] text-primary-400 uppercase tracking-widest">
+                        Óptica Porto Alegre
+                    </p>
+                </div>
+            </a>
+            <div class="flex gap-4 items-center">
+                <a href="https://www.instagram.com/optica_santacasa" target="_blank" rel="noopener"
+                    class="w-9 h-9 rounded-lg bg-neutral-800 flex items-center justify-center hover:bg-primary-600 transition-colors"><img
+                        src="./assets/logo_Instagram.png" alt="Instagram"
+                        class="w-5 h-5 object-contain rounded-sm" /></a><a
+                    href="https://api.whatsapp.com/send/?phone=555130297960&text&type=phone_number&app_absent=0"
+                    target="_blank" rel="noopener"
+                    class="w-9 h-9 rounded-lg bg-green-700 flex items-center justify-center hover:bg-green-600 transition-colors"><i
+                        data-lucide="message-circle" class="w-5 h-5 text-white"></i></a>
+            </div>
+            <p class="text-sm text-neutral-600">
+                2024 Óptica Santa Casa Porto Alegre
+            </p>
+        </div>
+    </footer>
+
+    <a href="https://api.whatsapp.com/send/?phone=555130297960&text&type=phone_number&app_absent=0" target="_blank"
+        rel="noopener" id="btn-whatsapp-fixo-cat"
+        class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 hover:scale-110 transition-all duration-300 anim-pulse-glow"
+        aria-label="WhatsApp" style="opacity: 0; pointer-events: none"><i data-lucide="message-circle"
+            class="w-7 h-7"></i></a>
+
+    <script>
+        lucide.createIcons();
+        var bm = document.getElementById("cat-btn-menu"),
+            nm = document.getElementById("cat-nav-mobile"),
+            ia = document.getElementById("cat-icone-abrir"),
+            ic = document.getElementById("cat-icone-fechar"),
+            mo = false;
+        bm.addEventListener("click", function () {
+            mo = !mo;
+            nm.classList.toggle("open", mo);
+            ia.classList.toggle("hidden", mo);
+            ic.classList.toggle("hidden", !mo);
+            bm.setAttribute("aria-expanded", String(mo));
+        });
+        document.querySelectorAll(".cat-link-mobile").forEach(function (l) {
+            l.addEventListener("click", function () {
+                mo = false;
+                nm.classList.remove("open");
+                ia.classList.remove("hidden");
+                ic.classList.add("hidden");
+                bm.setAttribute("aria-expanded", "false");
+            });
+        });
+        var nav = document.getElementById("cat-nav"),
+            bw = document.getElementById("btn-whatsapp-fixo-cat");
+        window.addEventListener("scroll", function () {
+            nav.classList.toggle("shadow-lg", window.scrollY > 50);
+            bw.style.opacity = window.scrollY > 400 ? "1" : "0";
+            bw.style.pointerEvents = window.scrollY > 400 ? "auto" : "none";
+        });
+        var obs = new IntersectionObserver(
+            function (es) {
+                es.forEach(function (e, i) {
+                    if (e.isIntersecting) {
+                        setTimeout(function () {
+                            e.target.classList.add("visible");
+                        }, i * 70);
+                        obs.unobserve(e.target);
+                    }
+                });
+            },
+            { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+        );
+        document.querySelectorAll(".reveal").forEach(function (el) {
+            obs.observe(el);
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(function (l) {
+            l.addEventListener("click", function (e) {
+                var d = document.querySelector(this.getAttribute("href"));
+                if (d) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top:
+                            d.getBoundingClientRect().top +
+                            window.scrollY -
+                            (nav.offsetHeight + 16),
+                        behavior: "smooth",
+                    });
+                }
+            });
+        });
+        var fs = document.querySelectorAll(
+            "#filtros-armações .filter-pill",
+        ),
+            cs = document.querySelectorAll("#grid-armações .marca-card");
+        fs.forEach(function (b) {
+            b.addEventListener("click", function () {
+                fs.forEach(function (f) {
+                    f.classList.remove("active");
+                });
+                this.classList.add("active");
+                var f = this.getAttribute("data-filter");
+                cs.forEach(function (c) {
+                    var s =
+                        f === "todos" ||
+                        c.getAttribute("data-categoria") === f;
+                    c.style.transition =
+                        "opacity .35s ease,transform .35s ease";
+                    c.style.opacity = s ? "1" : "0.2";
+                    c.style.transform = s ? "" : "scale(0.94)";
+                    c.style.pointerEvents = s ? "" : "none";
+                });
+            });
+        });
+        window.addEventListener("load", function () {
+            document.querySelectorAll(".reveal").forEach(function (el) {
+                if (el.getBoundingClientRect().top < window.innerHeight)
+                    el.classList.add("visible");
+            });
+        });
+    </script>
+</body>
+
+</html>
